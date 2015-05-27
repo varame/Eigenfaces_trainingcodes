@@ -40,6 +40,40 @@ A=X[1];
 #print(X)
 #print(y)
 
+def rgb2gray(rgb):
+	return np.dot(rgb[...,:3], [0.299, 0.587, 0.144])
+	
+img = mpimg.imread('Never_Giv_Up.jpeg')     
+gray = rgb2gray(img)    
+plt.imshow(gray, cmap = plt.get_cmap('gray'))
+#plt.savefig('Never_Giv_Upgrey.jpeg')
+#plt.show()
+
+X = np.array(gray)
+print X
+
+def computeMeanImage(X):
+    #fonction qui calcule l'image des images d'apprentissage
+    meanImage= np.mean(X)
+    return meanImage
+MU= computeMeanImage(X)
+print MU
+
+
+def computeCentredImage(X, MU):
+    #fonction qui centre les images de la base
+    [irow,icol] = X.shape
+    for i in range(len(irow)):
+        for j in range(len(icol)):
+            X=X-MU
+    return X
+X=X-MU
+print X
+
+
+#matrice_correlation = np.cov(mat)
+#print 'matrice de correlation :\n', matrice_correlation
+
 def matrixToVector(A):
     B=np.hstack(A);
     return B
