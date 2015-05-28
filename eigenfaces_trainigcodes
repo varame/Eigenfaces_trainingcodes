@@ -76,11 +76,21 @@ X=X-MU
 print 'la matrice d image centré :\n',X
 
 
-#calcul de la matrice de correlation
-def correlationMatrix(X):
+#determination de la matrice de covaiance
+def matriceCorr(X):
     matrice_corr = np.cov(X)
     print 'matrice de correlation :\n', matrice_corr
-    matrice_corre_norm=np.corrcoef( X,rowvar=0)
-    matrice_corre_norm.shape
-    print 'matrice de correlation normalise:\n', matrice_corre_norm
-    return matrice_corr
+    return matrice_corr 
+    
+a= matriceCorr(X)
+   
+#determination de la matrice de correllation
+def matriceCorrNorm(X):
+    matrice_corr_norm=np.corrcoef( X,rowvar=0)
+    matrice_corr_norm.shape
+    print 'matrice de correlation normalise:\n', matrice_corr_norm
+#    print 'dimensions de la matrice de correlation normalise:\n', matrice_correlation_norm.shape
+    return matrice_corr_norm
+    
+c=    matriceCorrNorm(X)
+
